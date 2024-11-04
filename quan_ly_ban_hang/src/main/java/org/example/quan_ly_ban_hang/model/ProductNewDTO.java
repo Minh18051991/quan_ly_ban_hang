@@ -1,5 +1,7 @@
 package org.example.quan_ly_ban_hang.model;
 
+import java.util.Objects;
+
 public class ProductNewDTO {
     private int id;
     private String name;
@@ -94,5 +96,18 @@ public class ProductNewDTO {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ProductNewDTO that = (ProductNewDTO) o;
+        return id == that.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
     }
 }
