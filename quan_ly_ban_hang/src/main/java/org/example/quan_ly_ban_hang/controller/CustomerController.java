@@ -3,8 +3,6 @@ package org.example.quan_ly_ban_hang.controller;
 import org.example.quan_ly_ban_hang.model.Customer;
 import org.example.quan_ly_ban_hang.service.customer.CustomerService;
 import org.example.quan_ly_ban_hang.service.customer.ICustomerService;
-
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
