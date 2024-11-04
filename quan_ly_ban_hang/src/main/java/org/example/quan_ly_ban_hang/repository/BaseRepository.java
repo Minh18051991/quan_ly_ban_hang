@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class BaseRepository {
     private static final String URL ="jdbc:mysql://localhost:3306/case_study_3"; // sửa lại tên của csdl
     private static final String USER ="root";
-    private static final String PASS ="";
+    private static final String PASS ="codegym";
     public static Connection getConnectDB(){
         Connection connection = null;
         try {
