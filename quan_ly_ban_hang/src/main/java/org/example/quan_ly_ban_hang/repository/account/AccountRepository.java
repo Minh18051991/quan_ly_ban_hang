@@ -134,4 +134,20 @@ public class AccountRepository implements IAccountRepository {
         }
         return account;
     }
+    public String getRoleById(int id) {
+        String role = null;
+        String sql = "SELECT r.name AS role_name FROM permissions p JOIN role r ON p.role_id = r.id WHERE p.account_id = ?";
+
+        try (Connection connection = BaseRepository.getConnectDB();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setInt(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                role = resultSet.getString("role_name");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return role;
+    }
 }
