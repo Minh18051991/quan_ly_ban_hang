@@ -31,8 +31,8 @@ public class AuthController extends HttpServlet {
         } else if ("logout".equals(action)) {
             HttpSession session = request.getSession();
             session.invalidate();
-            response.sendRedirect("/views/landing_page.jsp");
-        } else if ("profile".equals(action)) {
+            response.sendRedirect("/views/auth/landing_page.jsp");
+        } else if ("update".equals(action)) {
             HttpSession session = request.getSession();
             Account account = (Account) session.getAttribute("account");
             if (account == null) {
@@ -118,7 +118,9 @@ public class AuthController extends HttpServlet {
             if (account != null) {
                 HttpSession session = request.getSession();
                 session.setAttribute("account", account);
-                response.sendRedirect("/views/home.jsp");
+                String role = accountService.getRoleById(account.getId()); // Lấy vai trò
+                session.setAttribute("role", role);
+                response.sendRedirect(request.getContextPath() + "/product?action=product-list");
             } else {
                 request.setAttribute("error", "Tên đăng nhập hoặc mật khẩu không đúng");
                 request.getRequestDispatcher("/views/auth/login.jsp").forward(request, response);
