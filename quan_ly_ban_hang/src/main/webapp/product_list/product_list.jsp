@@ -35,6 +35,8 @@
 
 <!-- Body -->
 <div class="container mt-4">
+    <a href="product?action=product-new" class="btn btn-primary mb-2">Hiển thị sản phẩm mới nhất</a>
+    <a href="product?action=product-purchased" class="btn btn-success mb-2">Sản phẩm được mua nhiều nhất</a>
     <div class="row">
         <c:forEach items="${productList}" var="product">
             <div class="col-md-4 mb-4">

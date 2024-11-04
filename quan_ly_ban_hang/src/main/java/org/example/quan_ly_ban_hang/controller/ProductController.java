@@ -25,14 +25,14 @@ public class ProductController extends HttpServlet {
             case "product-new":
                 showProductNewDTO(req, resp);
                 break;
-            case "product-list":
-                showProductList(req, resp);
-                break;
             case "product_details":
                 productDetails(req,resp);
                 break;
             case "product-purchased":
                 productPurchasedList(req,resp);
+                break;
+            default:
+                showProductList(req, resp);
                 break;
         }
     }
