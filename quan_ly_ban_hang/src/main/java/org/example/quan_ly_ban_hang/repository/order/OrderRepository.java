@@ -18,9 +18,9 @@ import java.util.Properties;
 public class OrderRepository implements IOrderRepository {
     BaseRepository baseRepository = new BaseRepository();
     private static final String SELECT_ALL_ORDER = " SELECT ob.id ,customer.name,ob.order_date,ob.status,ob.is_deleted FROM order_bill ob left join  account on account.id = ob.account_id left join customer  on account.customer_id = customer.id where ob.is_deleted = false";
-    private static final String APPROVE_ORDER = "update order_bill set status = false where id =?";
+    private static final String APPROVE_ORDER = "update order_bill set status = true where id =?";
     private static final String DELETE_ORDER = "update order_bill set is_deleted = true where id =?";
-    private static final String SELECT_ORDER_BY_NAME = "call get_order_by_name(?)";
+    private static final String SELECT_ORDER_BY_NAME = "select ob.id,customer.name,ob.order_date,ob.status,ob.is_deleted from order_bill ob join account on account.id = ob.account_id join customer on account.customer_id = customer.id where customer.name like  ?";
     private static final String SELECT_PRODUCT_DETAIL = "call get_product_detail(?)";
     private static final String SELECT_EMAIL = "select * from order_status_changes";
 
@@ -54,7 +54,7 @@ public class OrderRepository implements IOrderRepository {
         OrderDTO order = null;
         try (Connection connection = baseRepository.getConnectDB()) {
             CallableStatement callableStatement = connection.prepareCall(SELECT_ORDER_BY_NAME);
-            callableStatement.setString(1, name);
+            callableStatement.setString(1,"%" + name + "%" );
             ResultSet resultSet = callableStatement.executeQuery();
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");

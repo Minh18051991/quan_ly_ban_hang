@@ -66,7 +66,7 @@
 </header>
 
 <!-- Body -->
-<div class="container mt-4">
+<div class="container min-vh-100">
     <h3>DANH SÁCH ORDER</h3>
     <form action="/order?action=searchByName" method="post" class="form-inline mb-3">
         <input type="text" name="name" class="form-control mr-2" placeholder="Nhập tên khách hàng">
@@ -118,7 +118,6 @@
             "dom": 'lrtip',
             "lengthChange": false,
             "pageLength": 5
-
         });
     });
 </script>
