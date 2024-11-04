@@ -156,11 +156,11 @@ VALUES (1, 1),
        (2, 4),
        (2, 5);
 -- Đơn Hàng
-INSERT INTO order_bill (account_id)
-VALUES (2),
-       (3),
-       (4),
-       (5);
+INSERT INTO order_bill (account_id,status)
+VALUES (2,1),
+       (3,1),
+       (4,1),
+       (5,1);
 -- Chi Tiết Đơn Hàng
 INSERT INTO order_details (order_id, product_id, quantity)
 VALUES (1, 1, 2),
@@ -169,11 +169,48 @@ VALUES (1, 1, 2),
        (2, 4, 2),
        (3, 5, 1),
        (4, 6, 5);
+  
+  
 
+SELECT p.id, p.image, p.product_name, p.description, p.price, SUM(s.quantity) AS total_quantity, pc.product_name as category_name, MAX(s.created_at) AS latest_created_at
+FROM stock s
+JOIN product p ON s.product_id = p.id
+JOIN product_category pc ON p.product_category_id = pc.id
+GROUP BY p.id
+ORDER BY latest_created_at DESC
+LIMIT 4;
 
+SELECT p.id, p.image, p.product_name, p.description, p.price, SUM(s.quantity) AS total_quantity, pc.product_name as category_name, MAX(s.created_at) AS latest_created_at
+FROM stock s
+JOIN product p ON s.product_id = p.id
+JOIN product_category pc ON p.product_category_id = pc.id
+where p.id = 1
+GROUP BY p.id;
 
+SELECT p.id, p.product_name, p.price, p.image, SUM(od.quantity) AS Total_Purchased
+FROM order_details od
+JOIN product p ON od.product_id = p.id
+GROUP BY od.product_id
+ORDER BY Total_Purchased DESC
+limit 4;
 
-
-
-
+SELECT 
+    ob.id AS order_id,
+    ob.order_date,
+    ob.status,
+    od.product_id,
+    p.product_name,
+    od.quantity,
+    p.price,
+    (od.quantity * p.price) AS total_price
+FROM 
+    order_bill ob
+JOIN 
+    order_details od ON ob.id = od.order_id
+JOIN 
+    product p ON od.product_id = p.id
+WHERE 
+    ob.account_id = 4 AND ob.is_deleted = FALSE
+ORDER BY 
+    ob.order_date DESC;
 
