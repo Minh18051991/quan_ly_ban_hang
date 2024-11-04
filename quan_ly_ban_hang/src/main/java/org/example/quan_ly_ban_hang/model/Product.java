@@ -12,6 +12,7 @@ public class Product {
     private Timestamp createdAt;
     private boolean isDeleted;
 
+
     public Product(int id, int productCategoryId, String productName, String description, double price, String image, Timestamp createdAt, boolean isDeleted) {
         this.id = id;
         this.productCategoryId = productCategoryId;
@@ -23,17 +24,27 @@ public class Product {
         this.isDeleted = isDeleted;
     }
 
-    public Product(int productCategoryId, String productName, String description, double price, String image, Timestamp createdAt, boolean isDeleted) {
-        this.productCategoryId = productCategoryId;
-        this.productName = productName;
+
+    public Product() {
+    }
+
+    public Product(int id, int categoryId, String name, String description, double price, String image, boolean b) {
+    this.id = id;
+    this.productCategoryId = categoryId;
+    this.productName = name;
+    this.description = description;
+    this.price = price;
+    this.image = image;
+    this.isDeleted = b;
+    }
+
+    public Product(int categoryId, String name, String description, double price, String image, boolean b) {
+        this.productCategoryId = categoryId;
+        this.productName = name;
         this.description = description;
         this.price = price;
         this.image = image;
-        this.createdAt = createdAt;
-        this.isDeleted = isDeleted;
-    }
-
-    public Product() {
+        this.isDeleted = b;
     }
 
     public int getId() {
