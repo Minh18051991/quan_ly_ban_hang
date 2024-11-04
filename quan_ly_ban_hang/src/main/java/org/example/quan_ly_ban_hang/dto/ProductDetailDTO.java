@@ -1,4 +1,4 @@
-package org.example.quan_ly_ban_hang.DTO;
+package org.example.quan_ly_ban_hang.dto;
 
 public class ProductDetailDTO {
     private String name;

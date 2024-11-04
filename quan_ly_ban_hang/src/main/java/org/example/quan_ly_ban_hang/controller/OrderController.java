@@ -1,8 +1,8 @@
 package org.example.quan_ly_ban_hang.controller;
 
 
-import org.example.quan_ly_ban_hang.DTO.OrderDTO;
-import org.example.quan_ly_ban_hang.DTO.ProductDetailDTO;
+import org.example.quan_ly_ban_hang.dto.OrderDTO;
+import org.example.quan_ly_ban_hang.dto.ProductDetailDTO;
 
 import org.example.quan_ly_ban_hang.service.order.IOrderService;
 import org.example.quan_ly_ban_hang.service.order.OrderService;
