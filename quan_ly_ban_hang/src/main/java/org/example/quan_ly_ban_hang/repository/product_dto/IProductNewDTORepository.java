@@ -1,10 +1,10 @@
-package org.example.quan_ly_ban_hang.serviceDTO;
+package org.example.quan_ly_ban_hang.repository.product_dto;
 
 import org.example.quan_ly_ban_hang.model.ProductNewDTO;
 
 import java.util.List;
 
-public interface IProductNewDTOService {
+public interface IProductNewDTORepository {
     List<ProductNewDTO> findAllProductNewDTO();
 
     List<ProductNewDTO> findAllProduct();

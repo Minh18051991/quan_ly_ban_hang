@@ -1,8 +1,8 @@
 package org.example.quan_ly_ban_hang.controller;
 
 import org.example.quan_ly_ban_hang.model.ProductNewDTO;
-import org.example.quan_ly_ban_hang.serviceDTO.IProductNewDTOService;
-import org.example.quan_ly_ban_hang.serviceDTO.ProductNewDTOService;
+import org.example.quan_ly_ban_hang.service.serviceDTO.IProductNewDTOService;
+import org.example.quan_ly_ban_hang.service.serviceDTO.ProductNewDTOService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
