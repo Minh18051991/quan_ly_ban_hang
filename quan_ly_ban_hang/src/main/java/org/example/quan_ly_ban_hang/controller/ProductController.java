@@ -40,7 +40,7 @@ public class ProductController extends HttpServlet {
     private void productPurchasedList(HttpServletRequest req, HttpServletResponse resp) {
         req.setAttribute("productPurchasedList",productNewDTOService.productPurchasedMost());
         try {
-            req.getRequestDispatcher("product_list/product-purchased.jsp").forward(req,resp);
+            req.getRequestDispatcher("views/product_list/product-purchased.jsp").forward(req,resp);
         } catch (ServletException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
@@ -52,7 +52,7 @@ public class ProductController extends HttpServlet {
     private void showProductList(HttpServletRequest req, HttpServletResponse resp) {
         req.setAttribute("productList", productNewDTOService.findAllProduct());
         try {
-            req.getRequestDispatcher("product_list/product_list.jsp").forward(req, resp);
+            req.getRequestDispatcher("views/product_list/product_list.jsp").forward(req, resp);
         } catch (ServletException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
@@ -63,7 +63,7 @@ public class ProductController extends HttpServlet {
     private void showProductNewDTO(HttpServletRequest req, HttpServletResponse resp) {
         req.setAttribute("productNewList", productNewDTOService.findAllProductNewDTO());
         try {
-            req.getRequestDispatcher("/product-new/product-new-dto.jsp").forward(req, resp);
+            req.getRequestDispatcher("/views/product-new/product-new-dto.jsp").forward(req, resp);
         } catch (ServletException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
@@ -76,7 +76,7 @@ public class ProductController extends HttpServlet {
         ProductNewDTO productDetails = productNewDTOService.productDetails(productId);
         req.setAttribute("product",productDetails);
         try {
-            req.getRequestDispatcher("product_list/product_details.jsp").forward(req,resp);
+            req.getRequestDispatcher("/views/product_list/product_details.jsp").forward(req,resp);
         } catch (ServletException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {

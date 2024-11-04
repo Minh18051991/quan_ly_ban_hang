@@ -180,12 +180,91 @@ GROUP BY p.id
 ORDER BY latest_created_at DESC
 LIMIT 4;
 
+
+-- thêm procedure tìm kiếm order theo tên khách hàng
+
+delimiter //
+create procedure get_order_by_name(in p_name varchar(100))
+begin
+select *
+from order_bill ob
+join account on account.id = ob.account_id
+join customer on account.customer_id = customer.id 
+where customer.name = p_name
+;
+
+
+end //
+delimiter ;
+
+-- thêm procedure xem chi tiết sản phẩm của 1 order
+
+delimiter //
+create procedure get_product_detail( in p_id int)
+begin
+select p.product_name,p.description,p.price,p.image, od.quantity from order_details od
+join order_bill ob on od.order_id = ob.id
+join product p on p.id = od.product_id 
+join product_category pc on pc.id = p.product_category_id
+where p_id = ob.id
+;
+end //
+
+
+delimiter ;
+
+
+CREATE TABLE order_status_changes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT,
+    new_status VARCHAR(50),
+    customer_email VARCHAR(255),
+    FOREIGN KEY (order_id) REFERENCES order_bill(id)
+);
+
+-- thêm bảng theo dõi sự thay đổi status ở order
+CREATE TABLE order_status_changes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT,
+    new_status VARCHAR(50),
+    customer_email VARCHAR(255)
+    
+);
+
+-- thêm trigger xử lý khi có sự thay đổi status ở order
+delimiter //
+CREATE TRIGGER after_order_status_update
+AFTER UPDATE ON order_bill
+FOR EACH ROW
+BEGIN
+    DECLARE customer_email VARCHAR(255);
+
+    -- Lấy email từ bảng customer dựa trên customer_id của order
+    SELECT email INTO customer_email
+    FROM customer c
+    join account a on a.customer_id = c.id
+    WHERE a.id = NEW.account_id;
+
+    -- Chỉ chèn khi status thay đổi
+    IF OLD.status != NEW.status THEN
+        INSERT INTO order_status_changes (order_id, new_status, customer_email)
+        VALUES (NEW.id, NEW.status, customer_email);
+    END IF;
+END; //
+delimiter ;
+
+insert into order_bill(account_id)
+values(1)
+;
+
+
 SELECT p.id, p.image, p.product_name, p.description, p.price, SUM(s.quantity) AS total_quantity, pc.product_name as category_name, MAX(s.created_at) AS latest_created_at
 FROM stock s
 JOIN product p ON s.product_id = p.id
 JOIN product_category pc ON p.product_category_id = pc.id
 where p.id = 1
 GROUP BY p.id;
+
 
 SELECT p.id, p.product_name, p.price, p.image, SUM(od.quantity) AS Total_Purchased
 FROM order_details od
