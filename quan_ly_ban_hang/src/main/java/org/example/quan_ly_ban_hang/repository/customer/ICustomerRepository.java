@@ -1,6 +1,6 @@
 package org.example.quan_ly_ban_hang.repository.customer;
 
-import org.example.quan_ly_ban_hang.DTO.CustomerPurchaseDTO;
+import org.example.quan_ly_ban_hang.dto.CustomerPurchaseDTO;
 import org.example.quan_ly_ban_hang.model.Customer;
 
 import java.util.List;
