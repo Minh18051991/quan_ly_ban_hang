@@ -47,7 +47,6 @@ public class OrderController extends HttpServlet {
             case "approve":
                 approveOrder(req, resp);
                 break;
-
             default:
                 showListOrder(req, resp);
                 break;
