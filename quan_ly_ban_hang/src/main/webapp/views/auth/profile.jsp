@@ -22,29 +22,20 @@
             z-index: 1; /* Đảm bảo header nằm trên cùng */
         }
 
-        .header-content {
-            display: flex;
-            justify-content: space-between; /* Tách biệt phần trái và phải */
-            align-items: center; /* Căn giữa theo chiều dọc */
-        }
+       
 
         .nav {
             margin-right: auto; /* Đẩy các phần bên trái về phía trái */
         }
 
-        .login-buttons {
-            margin-left: 20px; /* Khoảng cách giữa menu và nút đăng nhập */
-        }
+
 
         footer {
             background-color: #343a40; /* Màu nền của footer */
             color: white; /* Màu chữ trong footer */
         }
 
-        .login-buttons {
-            position: absolute; /* Đưa các nút về phía bên phải */
-            right: 10px; /* Căn sát phải */
-        }
+
 
     </style>
 </head>
