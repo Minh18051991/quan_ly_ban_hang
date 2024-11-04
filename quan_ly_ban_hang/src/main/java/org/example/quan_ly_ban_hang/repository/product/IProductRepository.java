@@ -1,7 +1,7 @@
 package org.example.quan_ly_ban_hang.repository.product;
 
 
-import org.example.quan_ly_ban_hang.dto.ProductDTO;
+import org.example.quan_ly_ban_hang.DTO.ProductDTO;
 import org.example.quan_ly_ban_hang.model.Product;
 
 import java.util.List;

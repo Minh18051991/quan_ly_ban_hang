@@ -1,4 +1,4 @@
-package org.example.quan_ly_ban_hang.dto;
+package org.example.quan_ly_ban_hang.DTO;
 
 public class CustomerPurchaseDTO {
     private int customerId;

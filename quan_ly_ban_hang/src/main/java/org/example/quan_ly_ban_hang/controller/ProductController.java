@@ -1,5 +1,6 @@
 package org.example.quan_ly_ban_hang.controller;
 
+import org.example.quan_ly_ban_hang.model.Cart;
 import org.example.quan_ly_ban_hang.model.ProductNewDTO;
 import org.example.quan_ly_ban_hang.service.serviceDTO.IProductNewDTOService;
 import org.example.quan_ly_ban_hang.service.serviceDTO.ProductNewDTOService;
@@ -9,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(name = "ProductController", value = "/product")
@@ -51,6 +53,10 @@ public class ProductController extends HttpServlet {
 
     private void showProductList(HttpServletRequest req, HttpServletResponse resp) {
         req.setAttribute("productList", productNewDTOService.findAllProduct());
+        HttpSession session = req.getSession();
+        if (session.getAttribute("cart") == null) {
+            session.setAttribute("cart", new Cart());
+        }
         try {
             req.getRequestDispatcher("views/product_list/product_list.jsp").forward(req, resp);
         } catch (ServletException e) {

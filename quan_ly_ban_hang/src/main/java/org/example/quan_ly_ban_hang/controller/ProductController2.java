@@ -1,7 +1,7 @@
 package org.example.quan_ly_ban_hang.controller;
 
 
-import org.example.quan_ly_ban_hang.dto.ProductDTO;
+import org.example.quan_ly_ban_hang.DTO.ProductDTO;
 import org.example.quan_ly_ban_hang.model.Product;
 import org.example.quan_ly_ban_hang.model.ProductCategory;
 import org.example.quan_ly_ban_hang.service.category.ProductCategoryService;
