@@ -35,9 +35,23 @@
 
 <!-- Body -->
 <div class="container mt-4">
-    <c:forEach items="productNew"
+    <h1 class="text-center mb-4">Sản phẩm được mua nhiều nhất</h1>
+    <div class="row">
+        <c:forEach items="${productPurchasedList}" var="product">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="${product.imageUrl}" class="card-img-top" alt="${product.name}">
+                    <div class="card-body">
+                        <h5 class="card-title">${product.name}</h5>
+                        <p class="card-text">Giá: <strong>${product.price}</strong> VNĐ</p>
+                        <p class="card-text">Số lượng mua: <strong>${product.quantity}</strong></p>
+                        <a href="product?action=product_details&id=${product.id}" class="btn btn-primary">Xem chi tiết</a>
+                    </div>
+                </div>
+            </div>
+        </c:forEach>
+    </div>
 </div>
-
 <!-- Footer -->
 <footer class="bg-dark text-white text-center py-3">
     <p class="mb-0">&copy; 2023 Điện Máy XYZ. Tất cả quyền được bảo lưu.</p>
