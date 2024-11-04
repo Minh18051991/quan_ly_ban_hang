@@ -1,6 +1,6 @@
 package org.example.quan_ly_ban_hang.service.customer;
 
-import org.example.quan_ly_ban_hang.DTO.CustomerPurchaseDTO;
+import org.example.quan_ly_ban_hang.dto.CustomerPurchaseDTO;
 import org.example.quan_ly_ban_hang.model.Customer;
 import org.example.quan_ly_ban_hang.repository.customer.CustomerRepository;
 import org.example.quan_ly_ban_hang.repository.customer.ICustomerRepository;
@@ -51,7 +51,7 @@ public class CustomerService implements ICustomerService {
     }
 
     @Override
-    public List<CustomerPurchaseDTO> GetTopCustomersByProductCount() {
+    public List<org.example.quan_ly_ban_hang.dto.CustomerPurchaseDTO> GetTopCustomersByProductCount() {
         return customerRepository.GetTopCustomersByProductCount();
     }
 
