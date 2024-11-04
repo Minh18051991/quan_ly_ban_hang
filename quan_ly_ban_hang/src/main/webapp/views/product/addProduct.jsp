@@ -16,7 +16,7 @@
 </head>
 <body>
 
-<div class="container mt-4">
+<div class="container mt-4 min-vh-100">
     <h2 class="mb-4">Thêm Sản Phẩm Mới</h2>
     <form action="/products?action=add" method="post">
         <div class="form-group">
