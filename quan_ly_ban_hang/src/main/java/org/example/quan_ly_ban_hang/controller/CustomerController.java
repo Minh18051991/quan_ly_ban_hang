@@ -1,9 +1,10 @@
 package org.example.quan_ly_ban_hang.controller;
 
+
 import org.example.quan_ly_ban_hang.DTO.CustomerPurchaseDTO;
-import org.example.quan_ly_ban_hang.Service.CustomerService;
-import org.example.quan_ly_ban_hang.Service.ICustomerService;
 import org.example.quan_ly_ban_hang.model.Customer;
+import org.example.quan_ly_ban_hang.service.customer.CustomerService;
+import org.example.quan_ly_ban_hang.service.customer.ICustomerService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
+
 
 @WebServlet(name = "AdminController", urlPatterns = {"/customer"})
 public class CustomerController extends HttpServlet {
@@ -143,3 +145,4 @@ public class CustomerController extends HttpServlet {
 
 
 }
+

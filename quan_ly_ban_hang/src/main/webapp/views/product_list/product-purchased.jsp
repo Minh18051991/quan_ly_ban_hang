@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
@@ -36,33 +35,23 @@
 
 <!-- Body -->
 <div class="container mt-4">
-    <h3 class="mb-4">THÔNG TIN ORDER</h3>
-
-    <table class="table table-striped table-bordered">
-        <thead class="thead-dark">
-        <tr>
-            <th>ID</th>
-            <th>Tên Khách Hàng</th>
-            <th>Ngày Đặt Hàng</th>
-            <th>Trạng Thái</th>
-            <th>Chi Tiết</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach items="${orderDTO}" var="order">
-            <tr>
-                <td>${order.id}</td>
-                <td>${order.nameCustomer}</td>
-                <td>${order.date}</td>
-                <td>${order.status}</td>
-                <td><a href="/order?action=orderDetail&id=${order.id}" class="btn btn-info btn-sm">Chi Tiết</a></td>
-            </tr>
+    <h1 class="text-center mb-4">Sản phẩm được mua nhiều nhất</h1>
+    <div class="row">
+        <c:forEach items="${productPurchasedList}" var="product">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="${product.imageUrl}" class="card-img-top" alt="${product.name}">
+                    <div class="card-body">
+                        <h5 class="card-title">${product.name}</h5>
+                        <p class="card-text">Giá: <strong>${product.price}</strong> VNĐ</p>
+                        <p class="card-text">Số lượng mua: <strong>${product.quantity}</strong></p>
+                        <a href="product?action=product_details&id=${product.id}" class="btn btn-primary">Xem chi tiết</a>
+                    </div>
+                </div>
+            </div>
         </c:forEach>
-        </tbody>
-    </table>
+    </div>
 </div>
-
-
 <!-- Footer -->
 <footer class="bg-dark text-white text-center py-3">
     <p class="mb-0">&copy; 2023 Điện Máy XYZ. Tất cả quyền được bảo lưu.</p>

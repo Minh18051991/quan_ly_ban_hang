@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
@@ -36,33 +35,30 @@
 
 <!-- Body -->
 <div class="container mt-4">
-    <h3 class="mb-4">THÔNG TIN ORDER</h3>
-
-    <table class="table table-striped table-bordered">
-        <thead class="thead-dark">
-        <tr>
-            <th>ID</th>
-            <th>Tên Khách Hàng</th>
-            <th>Ngày Đặt Hàng</th>
-            <th>Trạng Thái</th>
-            <th>Chi Tiết</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach items="${orderDTO}" var="order">
-            <tr>
-                <td>${order.id}</td>
-                <td>${order.nameCustomer}</td>
-                <td>${order.date}</td>
-                <td>${order.status}</td>
-                <td><a href="/order?action=orderDetail&id=${order.id}" class="btn btn-info btn-sm">Chi Tiết</a></td>
-            </tr>
-        </c:forEach>
-        </tbody>
-    </table>
+    <h1 class="text-center mb-4">Chi tiết sản phẩm</h1>
+    <div class="row justify-content-center">
+        <c:if test="${not empty product}">
+            <div class="col-md-6 mb-4">
+                <div class="card text-center">
+                    <img src="${product.imageUrl}" class="card-img-top" alt="${product.name}">
+                    <div class="card-body">
+                        <h5 class="card-title">${product.name}</h5>
+                        <p class="card-text">Giá: <strong>${product.price}</strong> VNĐ</p>
+                        <p class="card-text">Số lượng: <strong>${product.quantity}</strong></p>
+                        <p class="card-text">Giới thiệu: <strong>${product.description}</strong></p>
+                        <p class="card-text">Loại sản phẩm: <strong>${product.categoryName}</strong></p>
+                        <p class="card-text">Ngày nhập: <strong>${product.date}</strong></p>
+                    </div>
+                </div>
+            </div>
+        </c:if>
+        <c:if test="${empty product}">
+            <div class="col-md-6 mb-4 text-center">
+                <p>Không tìm thấy sản phẩm nào.</p>
+            </div>
+        </c:if>
+    </div>
 </div>
-
-
 <!-- Footer -->
 <footer class="bg-dark text-white text-center py-3">
     <p class="mb-0">&copy; 2023 Điện Máy XYZ. Tất cả quyền được bảo lưu.</p>
