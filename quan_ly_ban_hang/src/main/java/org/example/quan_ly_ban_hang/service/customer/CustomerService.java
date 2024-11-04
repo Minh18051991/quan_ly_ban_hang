@@ -1,5 +1,6 @@
 package org.example.quan_ly_ban_hang.service.customer;
 
+import org.example.quan_ly_ban_hang.DTO.CustomerPurchaseDTO;
 import org.example.quan_ly_ban_hang.model.Customer;
 import org.example.quan_ly_ban_hang.repository.customer.CustomerRepository;
 import org.example.quan_ly_ban_hang.repository.customer.ICustomerRepository;
@@ -32,5 +33,30 @@ public class CustomerService implements ICustomerService {
     @Override
     public void delete(int id) {
         customerRepository.delete(id);
+    }
+    @Override
+    public List<Customer> GetAllCustomers(int page, int pageSize) {
+        return customerRepository.GetAllCustomers(page, pageSize);
+    }
+
+
+    @Override
+    public List<Customer> FindCustomerByName(String name) {
+        return customerRepository.FindCustomerByName(name);
+    }
+
+    @Override
+    public boolean deleteCustomer(int id) {
+        return customerRepository.deleteCustomer(id);
+    }
+
+    @Override
+    public List<CustomerPurchaseDTO> GetTopCustomersByProductCount() {
+        return customerRepository.GetTopCustomersByProductCount();
+    }
+
+    @Override
+    public int getTotalCustomers() {
+        return customerRepository.getTotalCustomers();
     }
 }
