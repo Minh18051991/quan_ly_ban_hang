@@ -28,6 +28,17 @@ public class Account {
     }
     public Account() {}
 
+    public Account(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+    public Account(int id, String username, String password) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+    }
+
     public int getId() {
         return id;
     }

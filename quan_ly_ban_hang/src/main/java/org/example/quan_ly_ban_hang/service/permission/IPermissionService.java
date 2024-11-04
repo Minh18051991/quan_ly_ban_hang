@@ -5,9 +5,9 @@ import org.example.quan_ly_ban_hang.model.Permission;
 import java.util.List;
 
 public interface IPermissionService {
-    List<Permission> findAll();
+    void save(Permission permission);
     Permission findById(int id);
-    void save(Permission permission, boolean isAdmin);
-    void update(Permission permission, boolean isAdmin);
-    void delete(int id, boolean isAdmin);
+    List<Permission> findAll();
+    void update(Permission permission);
+    void delete(int id);
 }

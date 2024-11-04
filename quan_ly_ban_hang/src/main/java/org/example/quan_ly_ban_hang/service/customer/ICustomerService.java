@@ -5,9 +5,9 @@ import org.example.quan_ly_ban_hang.model.Customer;
 import java.util.List;
 
 public interface ICustomerService {
+    int save(Customer customer);
+    Customer findById(int id);
     List<Customer> findAll();
-    Customer findById(int id, boolean isAdmin, int userId);
-    void save(Customer customer);
-    void update(Customer customer, int userId);
-    void delete(int id, boolean isAdmin);
+    void update(Customer customer);
+    void delete(int id);
 }

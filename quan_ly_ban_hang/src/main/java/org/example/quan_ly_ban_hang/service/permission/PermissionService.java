@@ -7,10 +7,16 @@ import org.example.quan_ly_ban_hang.repository.permission.PermissionRepository;
 import java.util.List;
 
 public class PermissionService implements IPermissionService {
-    private final IPermissionRepository permissionRepository;
+    private final IPermissionRepository permissionRepository = new PermissionRepository();
 
-    public PermissionService() {
-        this.permissionRepository = new PermissionRepository();
+    @Override
+    public void save(Permission permission) {
+        permissionRepository.save(permission);
+    }
+
+    @Override
+    public Permission findById(int id) {
+        return permissionRepository.findById(id);
     }
 
     @Override
@@ -19,35 +25,12 @@ public class PermissionService implements IPermissionService {
     }
 
     @Override
-    public Permission findById(int id) {
-        return permissionRepository.findById(id);
-    }
-
-
-    @Override
-    public void save(Permission permission, boolean isAdmin) {
-        if (isAdmin) {
-            permissionRepository.save(permission);
-        } else {
-            throw new SecurityException("Bạn không có quyền thêm quyền.");
-        }
+    public void update(Permission permission) {
+        permissionRepository.update(permission);
     }
 
     @Override
-    public void update(Permission permission, boolean isAdmin) {
-        if (isAdmin) {
-            permissionRepository.update(permission);
-        } else {
-            throw new SecurityException("Bạn không có quyền chỉnh sửa quyền.");
-        }
-    }
-
-    @Override
-    public void delete(int id, boolean isAdmin) {
-        if (isAdmin) {
-            permissionRepository.delete(id);
-        } else {
-            throw new SecurityException("Bạn không có quyền xóa quyền.");
-        }
+    public void delete(int id) {
+        permissionRepository.delete(id);
     }
 }

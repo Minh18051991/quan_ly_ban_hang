@@ -4,18 +4,15 @@ import org.example.quan_ly_ban_hang.model.Role;
 import org.example.quan_ly_ban_hang.repository.role.IRoleRepository;
 import org.example.quan_ly_ban_hang.repository.role.RoleRepository;
 
+
 import java.util.List;
 
 public class RoleService implements IRoleService {
-    private final IRoleRepository roleRepository;
-
-    public RoleService() {
-        this.roleRepository = new RoleRepository();
-    }
+    private final IRoleRepository roleRepository = new RoleRepository();
 
     @Override
-    public List<Role> findAll() {
-        return roleRepository.findAll();
+    public void save(Role role) {
+        roleRepository.save(role);
     }
 
     @Override
@@ -24,13 +21,8 @@ public class RoleService implements IRoleService {
     }
 
     @Override
-    public Role findByName(String name) {
-        return roleRepository.findByName(name); // Đảm bảo rằng phương thức này cũng có trong repository
-    }
-
-    @Override
-    public void save(Role role) {
-        roleRepository.save(role);
+    public List<Role> findAll() {
+        return roleRepository.findAll();
     }
 
     @Override

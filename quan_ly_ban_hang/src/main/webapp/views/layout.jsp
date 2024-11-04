@@ -1,5 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -7,41 +6,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang Bán Hàng Điện Máy</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom styles */
+        body {
+            min-height: 100vh; /* Đảm bảo chiều cao tối thiểu cho body */
+            color: white;
+            filter: brightness(0.8); /* Giảm độ sáng của hình nền */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Đảm bảo các phần luôn ở dưới cùng */
+        }
+
+        header {
+            z-index: 1; /* Đảm bảo header nằm trên cùng */
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between; /* Tách biệt phần trái và phải */
+            align-items: center; /* Căn giữa theo chiều dọc */
+        }
+
+        .nav {
+            margin-right: auto; /* Đẩy các phần bên trái về phía trái */
+        }
+
+        .login-buttons {
+            margin-left: 20px; /* Khoảng cách giữa menu và nút đăng nhập */
+        }
+
+        footer {
+            background-color: #343a40; /* Màu nền của footer */
+            color: white; /* Màu chữ trong footer */
+        }
+
+        .login-buttons {
+            position: absolute; /* Đưa các nút về phía bên phải */
+            right: 10px; /* Căn sát phải */
+        }
+
+    </style>
 </head>
 <body>
 
 <!-- Header -->
 <header class="bg-primary text-white">
-    <div class="container d-flex justify-content-between align-items-center py-3">
-        <h1 class="h4">Điện Máy XYZ</h1>
-        <nav class="nav">
-            <a class="nav-link text-white" href="#search">Tìm Kiếm</a>
-            <a class="nav-link text-white" href="#about">Giới Thiệu</a>
-            <a class="nav-link text-white" href="#products">Sản Phẩm</a>
-            <a class="nav-link text-white" href="#contact">Liên Hệ</a>
-            <a class="nav-link text-white" href="#cart">Giỏ Hàng</a>
-        </nav>
-        <div class="btn-group">
-            <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Đăng Nhập
-            </button>
-            <div class="dropdown-menu dropdown-menu-right">
-                <a class="dropdown-item" href="#profile">Thông Tin Tài Khoản</a>
-                <a class="dropdown-item" href="#logout">Đăng Xuất</a>
-            </div>
+    <div class="container header-content py-3">
+        <div class="d-flex align-items-left">
+            <h1 class="h4 mb-0">Điện Máy XYZ</h1>
+            <nav class="nav ml-3">
+                <a class="nav-link text-white" href="#search">Tìm Kiếm</a>
+                <a class="nav-link text-white" href="#about">Giới Thiệu</a>
+                <a class="nav-link text-white" href="#products">Sản Phẩm</a>
+                <a class="nav-link text-white" href="#contact">Liên Hệ</a>
+                <a class="nav-link text-white" href="#cart">Giỏ Hàng</a>
+                <a class="nav-link text-white" href="#admin">Admin</a>
+
+            </nav>
+        </div>
+        <div class="login-buttons">
+            <a href="/auth?action=login" class="btn btn-light">
+                <i class="fa fa-user"></i> Đăng Nhập
+            </a>
+            <a href="/auth?action=register" class="btn btn-light">
+                <i class="fa fa-user-plus"></i> Đăng Ký
+            </a>
         </div>
     </div>
 </header>
 
-<!-- Body -->
-<div class="container mt-4">
-    <!-- Nội dung sẽ được thêm vào đây -->
-</div>
-
 <!-- Footer -->
-<footer class="bg-dark text-white text-center py-3">
-    <p class="mb-0">&copy; 2023 Điện Máy XYZ. Tất cả quyền được bảo lưu.</p>
-    <p>Liên hệ: support@dienmayxyz.com | Số điện thoại: 0123-456-789</p>
+<footer class="py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h5>Thông Tin Liên Hệ</h5>
+                <p>Địa chỉ: Số 123, Đường ABC, Quận 1, TP.HCM</p>
+                <p>Email: lienhe@dienmayxyz.com</p>
+                <p>Điện thoại: 0123 456 789</p>
+            </div>
+            <div class="col-md-6 text-md-right">
+                <p>&copy; 2024 Điện Máy XYZ - Bản quyền thuộc về XYZ Corp.</p>
+            </div>
+        </div>
+    </div>
 </footer>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
