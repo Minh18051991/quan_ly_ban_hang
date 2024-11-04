@@ -59,7 +59,7 @@ public class OrderController extends HttpServlet {
         List<OrderDTO> orders = orderService.findByName(name);
         req.setAttribute("orderDTO", orders);
         try {
-            req.getRequestDispatcher("WEB-INF/views/order/search.jsp").forward(req, resp);
+            req.getRequestDispatcher("views/order/search.jsp").forward(req, resp);
         } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
@@ -69,7 +69,7 @@ public class OrderController extends HttpServlet {
         List<OrderDTO> listOrder = orderService.findAll();
         req.setAttribute("listOrder", listOrder);
         try {
-            req.getRequestDispatcher("WEB-INF/views/order/list.jsp").forward(req, resp);
+            req.getRequestDispatcher("views/order/list.jsp").forward(req, resp);
         } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
@@ -91,7 +91,7 @@ public class OrderController extends HttpServlet {
         List<ProductDetailDTO> productDetails = orderService.getProductDetail(id);
         req.setAttribute("productDetailDTO", productDetails);
         try {
-            req.getRequestDispatcher("WEB-INF/views/order/detail.jsp").forward(req, resp);
+            req.getRequestDispatcher("views/order/detail.jsp").forward(req, resp);
         } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
