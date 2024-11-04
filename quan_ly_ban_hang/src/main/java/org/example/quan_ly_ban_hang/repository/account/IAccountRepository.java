@@ -11,4 +11,5 @@ public interface IAccountRepository {
     void update(Account account);
     void delete(int id);
     Account findByUsernameAndPassword(String username, String password);
+    String getRoleById(int id);
 }

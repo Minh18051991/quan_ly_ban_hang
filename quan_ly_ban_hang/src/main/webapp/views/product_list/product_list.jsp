@@ -16,7 +16,7 @@
         <h1 class="h4">Điện Máy XYZ</h1>
         <nav class="nav">
             <a class="nav-link text-white" href="#search">Tìm Kiếm</a>
-            <a class="nav-link text-white" href="#about">Giới Thiệu</a>
+            <a class="nav-link text-white" href="/views/auth/landing_page.jsp">Giới Thiệu</a>
             <a class="nav-link text-white" href="#products">Sản Phẩm</a>
             <a class="nav-link text-white" href="#contact">Liên Hệ</a>
             <a class="nav-link text-white" href="#cart">Giỏ Hàng</a>

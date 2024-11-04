@@ -38,4 +38,8 @@ public class AccountService implements IAccountService {
     public Account findByUsernameAndPassword(String username, String password) {
         return accountRepository.findByUsernameAndPassword(username, password);
     }
+    @Override
+    public String getRoleById(int id) {
+        return accountRepository.getRoleById(id);
+    }
 }
