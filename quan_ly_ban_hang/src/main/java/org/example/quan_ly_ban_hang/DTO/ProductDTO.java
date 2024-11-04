@@ -1,8 +1,8 @@
-package org.example.quan_ly_ban_hang.model;
+package org.example.quan_ly_ban_hang.DTO;
 
 import java.sql.Timestamp;
 
-public class Product {
+public class ProductDTO {
     private int id;
     private int productCategoryId;
     private String productName;
@@ -11,9 +11,12 @@ public class Product {
     private String image;
     private Timestamp createdAt;
     private boolean isDeleted;
+    private String category_name;
 
+    public ProductDTO() {
+    }
 
-    public Product(int id, int productCategoryId, String productName, String description, double price, String image, Timestamp createdAt, boolean isDeleted) {
+    public ProductDTO(int id, int productCategoryId, String productName, String description, double price, String image, Timestamp createdAt, boolean isDeleted, String category_name) {
         this.id = id;
         this.productCategoryId = productCategoryId;
         this.productName = productName;
@@ -22,29 +25,7 @@ public class Product {
         this.image = image;
         this.createdAt = createdAt;
         this.isDeleted = isDeleted;
-    }
-
-
-    public Product() {
-    }
-
-    public Product(int id, int categoryId, String name, String description, double price, String image, boolean b) {
-    this.id = id;
-    this.productCategoryId = categoryId;
-    this.productName = name;
-    this.description = description;
-    this.price = price;
-    this.image = image;
-    this.isDeleted = b;
-    }
-
-    public Product(int categoryId, String name, String description, double price, String image, boolean b) {
-        this.productCategoryId = categoryId;
-        this.productName = name;
-        this.description = description;
-        this.price = price;
-        this.image = image;
-        this.isDeleted = b;
+        this.category_name = category_name;
     }
 
     public int getId() {
@@ -109,5 +90,13 @@ public class Product {
 
     public void setDeleted(boolean deleted) {
         isDeleted = deleted;
+    }
+
+    public String getCategory_name() {
+        return category_name;
+    }
+
+    public void setCategory_name(String category_name) {
+        this.category_name = category_name;
     }
 }
