@@ -1,7 +1,9 @@
 package org.example.quan_ly_ban_hang.service.order;
 
-import org.example.quan_ly_ban_hang.dto.OrderDTO;
-import org.example.quan_ly_ban_hang.dto.ProductDetailDTO;
+import org.example.quan_ly_ban_hang.DTO.OrderDTO;
+
+
+import org.example.quan_ly_ban_hang.DTO.ProductDetailDTO;
 import org.example.quan_ly_ban_hang.model.Order;
 import org.example.quan_ly_ban_hang.repository.order.IOrderRepository;
 import org.example.quan_ly_ban_hang.repository.order.OrderRepository;
@@ -41,7 +43,7 @@ public class OrderService implements IOrderService {
 
     @Override
     public List<ProductDetailDTO> getProductDetail(int orderId) {
-        return orderRepository.getProductDetail(orderId)  ;
+        return orderRepository.getProductDetail(orderId) ;
     }
 
     @Override

@@ -117,7 +117,7 @@
         $('#tableStudent').DataTable({
             "dom": 'lrtip',
             "lengthChange": false,
-            "pageLength": 3
+            "pageLength": 5
 
         });
     });
