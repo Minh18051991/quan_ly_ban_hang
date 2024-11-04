@@ -1,8 +1,8 @@
-package org.example.quan_ly_ban_hang.serviceDTO;
+package org.example.quan_ly_ban_hang.service.serviceDTO;
 
 import org.example.quan_ly_ban_hang.model.ProductNewDTO;
-import org.example.quan_ly_ban_hang.repository.IProductNewDTORepository;
-import org.example.quan_ly_ban_hang.repository.ProductNewDTORepository;
+import org.example.quan_ly_ban_hang.repository.product_dto.IProductNewDTORepository;
+import org.example.quan_ly_ban_hang.repository.product_dto.ProductNewDTORepository;
 
 import java.util.List;
 

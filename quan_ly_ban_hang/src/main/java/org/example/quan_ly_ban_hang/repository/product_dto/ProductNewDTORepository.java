@@ -1,6 +1,7 @@
-package org.example.quan_ly_ban_hang.repository;
+package org.example.quan_ly_ban_hang.repository.product_dto;
 
 import org.example.quan_ly_ban_hang.model.ProductNewDTO;
+import org.example.quan_ly_ban_hang.repository.BaseRepository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
