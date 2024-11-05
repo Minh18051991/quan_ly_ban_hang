@@ -28,6 +28,7 @@
             <a class="nav-link text-white" href="#products">Sản Phẩm</a>
             <a class="nav-link text-white" href="#contact">Liên Hệ</a>
             <a class="nav-link text-white" href="#cart">Giỏ Hàng</a>
+            <a class="nav-link text-white" href="/custome">xem khách hàng</a>
         </nav>
         <div class="btn-group">
             <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

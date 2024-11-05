@@ -1,7 +1,7 @@
 package org.example.quan_ly_ban_hang.controller;
 
 
-import org.example.quan_ly_ban_hang.DTO.ProductDTO;
+import org.example.quan_ly_ban_hang.dto.ProductDTO;
 import org.example.quan_ly_ban_hang.model.Product;
 import org.example.quan_ly_ban_hang.model.ProductCategory;
 import org.example.quan_ly_ban_hang.service.category.ProductCategoryService;
@@ -66,7 +66,7 @@ public class ProductController2 extends HttpServlet {
     private void deleteProduct(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int deleteId = Integer.parseInt(request.getParameter("id"));
         productService.softDeleteProduct(deleteId);
-        response.sendRedirect("product?action=list");
+        response.sendRedirect("/views/product/productList.jsp");
     }
 
     private void searchProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
