@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     body {
+      background-image: url('/views/img/landing_page.png');
+
       min-height: 100vh;
       color: white;
       filter: brightness(0.8);
