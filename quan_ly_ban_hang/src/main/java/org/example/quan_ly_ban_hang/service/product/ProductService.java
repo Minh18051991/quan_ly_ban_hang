@@ -8,7 +8,7 @@ import org.example.quan_ly_ban_hang.repository.product.ProductRepository;
 
 import java.util.List;
 
-public class ProductService implements IProductService {
+public class    ProductService implements IProductService {
     private IProductRepository productRepository = new ProductRepository();
     @Override
     public List<Product> getAllProducts() {
