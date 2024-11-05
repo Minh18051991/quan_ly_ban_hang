@@ -7,43 +7,64 @@
 <head>
     <meta charset="UTF-8">
     <title>Kết quả tìm kiếm</title>
-    <link rel="stylesheet" href="path/to/your/css/bootstrap.min.css">
+    <!-- Bootstrap CSS via CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container mt-4">
-    <h1>Kết quả tìm kiếm cho từ khóa: "<c:out value="${param.keyword}" />"</h1>
+    <h1 class="text-center">Kết quả tìm kiếm cho từ khóa: "<c:out value="${param.keyword}" />"</h1>
 
     <!-- Kiểm tra nếu có kết quả tìm kiếm -->
     <c:choose>
         <c:when test="${not empty product}">
-            <table class="table table-bordered table-striped mt-3">
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Tên sản phẩm</th>
-                    <th>Mô tả</th>
-                    <th>Giá</th>
-                </tr>
-                </thead>
-                <tbody>
-                <c:forEach var="product" items="${product}">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped mt-3">
+                    <thead class="thead-dark">
                     <tr>
-                        <td>${product.id}</td>
-                        <td>${product.productName}</td>
-                        <td>${product.description}</td>
-                        <td><fmt:formatNumber value="${product.price}" type="currency" currencySymbol="VND"/></td>
+                        <th>ID</th>
+                        <th>Tên Sản Phẩm</th>
+                        <th>Mô Tả</th>
+                        <th>Giá</th>
+                        <th>Hình Ảnh</th>
+                        <th>Sửa</th>
+                        <th>Xóa</th>
                     </tr>
-                </c:forEach>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                    <c:forEach var="product" items="${product}">
+                        <tr>
+                            <td>${product.id}</td>
+                            <td>${product.productName}</td>
+                            <td>${product.description}</td>
+                            <td><fmt:formatNumber value="${product.price}" type="currency" currencySymbol="VND"/></td>
+                            <td><img src="${product.image}" alt="${product.productName}" width="100"></td>
+                            <td>
+                                <a href="/products?action=edit&id=${product.id}" class="btn btn-sm btn-warning">Sửa</a>
+                            </td>
+                            <td>
+                                <a href="/products?action=delete&id=${product.id}" class="btn btn-sm btn-danger" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này?')">Xóa</a>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+            </div>
         </c:when>
         <c:otherwise>
-            <p>Không tìm thấy sản phẩm nào.</p>
+            <div class="alert alert-warning mt-3" role="alert">
+                Không tìm thấy sản phẩm nào.
+            </div>
         </c:otherwise>
     </c:choose>
+
     <div class="mt-3">
-        <a href="product?action=list" class="btn btn-secondary">Quay lại danh sách sản phẩm</a>
+        <a href="/products?action=list" class="btn btn-secondary">Quay lại danh sách sản phẩm</a>
     </div>
 </div>
+
+<!-- Bootstrap JS and dependencies via CDN -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
