@@ -73,4 +73,5 @@ public Customer(){}
     public void setDeleted(boolean delete) {
         isDeleted = delete;
     }
+
 }

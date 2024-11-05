@@ -23,11 +23,7 @@
             <label for="quantity">Quantity:</label>
             <input type="number" class="form-control" id="quantity" name="quantity" required>
         </div>
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="isDeleted" name="isDeleted">
-            <label class="form-check-label" for="isDeleted">Is Deleted</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Add Stock</button>
+              <button type="submit" class="btn btn-primary">Add Stock</button>
         <a href="/stock" class="btn btn-secondary">Back to Stock List</a>
     </form>
 </div>

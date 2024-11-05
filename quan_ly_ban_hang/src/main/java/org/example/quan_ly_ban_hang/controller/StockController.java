@@ -1,10 +1,8 @@
 package org.example.quan_ly_ban_hang.controller;
-
 import org.example.quan_ly_ban_hang.service.stock.IStockService;
 import org.example.quan_ly_ban_hang.service.stock.StockService;
 import org.example.quan_ly_ban_hang.dto.StockDTO;
 import org.example.quan_ly_ban_hang.model.Stock;
-
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -124,3 +122,5 @@ public class StockController extends HttpServlet {
         dispatcher.forward(request, response);
     }
 }
+
+

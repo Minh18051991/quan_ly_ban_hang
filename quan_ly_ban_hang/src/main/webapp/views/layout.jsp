@@ -1,3 +1,4 @@
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
@@ -35,8 +36,32 @@
 
 <!-- Body -->
 <div class="container mt-4">
-    <!-- Nội dung sẽ được thêm vào đây -->
+    <h3 class="mb-4">THÔNG TIN ORDER</h3>
+
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Tên Khách Hàng</th>
+            <th>Ngày Đặt Hàng</th>
+            <th>Trạng Thái</th>
+            <th>Chi Tiết</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach items="${orderDTO}" var="order">
+            <tr>
+                <td>${order.id}</td>
+                <td>${order.nameCustomer}</td>
+                <td>${order.date}</td>
+                <td>${order.status}</td>
+                <td><a href="/order?action=orderDetail&id=${order.id}" class="btn btn-info btn-sm">Chi Tiết</a></td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
 </div>
+
 
 <!-- Footer -->
 <footer class="bg-dark text-white text-center py-3">

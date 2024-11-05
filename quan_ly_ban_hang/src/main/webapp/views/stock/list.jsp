@@ -46,7 +46,6 @@
             <td><%= stockDTO.getProductName()%></td>
             <td><%= stockDTO.getQuantity() %></td>
             <td>
-                <a href="/stock?action=search&id=<%= stockDTO.getId() %>" class="btn btn-info btn-sm">Search</a>
                 <a href="/stock?action=edit&id=<%= stockDTO.getId() %>" class="btn btn-warning btn-sm">Update</a>
                 <a href="/stock?action=delete&id=<%= stockDTO.getId() %>" class="btn btn-danger btn-sm">Delete</a>
             </td>
