@@ -57,9 +57,10 @@
             <a class="nav-link text-white" href="#products">Sản Phẩm</a>
             <a class="nav-link text-white" href="#contact">Liên Hệ</a>
             <a class="nav-link text-white" href="#cart">Giỏ Hàng</a>
+            <a class="nav-link text-white" href="stock">Kho</a>
             <a class="nav-link text-white" href="/products">Thêm sản Phẩm</a>
-             <a class="nav-link text-white" href="/customer">xem khách hàng</a>
-              <c:if test="${sessionScope.account != null && sessionScope.role == 'admin'}">
+            <a class="nav-link text-white" href="/customer">xem khách hàng</a>
+            <c:if test="${sessionScope.account != null && sessionScope.role == 'admin'}">
                 <a class="nav-link text-white" href="#admin">Admin</a>
             </c:if>
         </nav>
@@ -72,7 +73,8 @@
             </c:when>
             <c:otherwise>
                 <div class="btn-group">
-                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
                             ${sessionScope.account.username}
                     </button>
                     <div class="dropdown-menu dropdown-menu-right">
