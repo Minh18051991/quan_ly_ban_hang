@@ -1,6 +1,6 @@
 package org.example.quan_ly_ban_hang.service.customer;
 
-import org.example.quan_ly_ban_hang.DTO.CustomerPurchaseDTO;
+import org.example.quan_ly_ban_hang.dto.CustomerPurchaseDTO;
 import org.example.quan_ly_ban_hang.model.Customer;
 
 import java.util.List;
@@ -24,7 +24,7 @@ public interface ICustomerService {
     boolean deleteCustomer(int id);
 
     // Lấy danh sách khách hàng hàng đầu theo số lượng sản phẩm đã mua
-    List<CustomerPurchaseDTO> GetTopCustomersByProductCount();
+    List<org.example.quan_ly_ban_hang.dto.CustomerPurchaseDTO> GetTopCustomersByProductCount();
 
     // Lấy tổng số khách hàng
     int getTotalCustomers();
