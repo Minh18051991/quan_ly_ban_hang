@@ -1,13 +1,23 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>JSP - Hello World</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
 </head>
 <body>
-<h1><%= "Hello World!" %>
-</h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
+<header>
+    <h1>Stock</h1>
+</header>
+<nav>
+    <ul>
+        <li><a href="/stock">View Stock List</a></li>
+        <li><a href="/stock?action=add">Add new products to inventory</a></li>
+        <li><a href="/stock?action=searchForm">Search for products in stock</a></li>
+        <li><a href="/stock?action=update">Updating products in stock</a></li>
+    </ul>
+</nav>
+
 </body>
 </html>
