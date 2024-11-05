@@ -57,6 +57,8 @@
             <a class="nav-link text-white" href="#products">Sản Phẩm</a>
             <a class="nav-link text-white" href="#contact">Liên Hệ</a>
             <a class="nav-link text-white" href="#cart">Giỏ Hàng</a>
+            <a class="nav-link text-white" href="/products">Thêm sản Phẩm</a>
+
             <c:if test="${sessionScope.account != null && sessionScope.role == 'admin'}">
                 <a class="nav-link text-white" href="#admin">Admin</a>
             </c:if>

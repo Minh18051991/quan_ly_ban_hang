@@ -66,7 +66,7 @@ public class ProductController2 extends HttpServlet {
     private void deleteProduct(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int deleteId = Integer.parseInt(request.getParameter("id"));
         productService.softDeleteProduct(deleteId);
-        response.sendRedirect("product?action=list");
+        response.sendRedirect("/views/product/productList.jsp");
     }
 
     private void searchProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
